@@ -24,3 +24,14 @@ sudo apt-get install jenkins
 sudo apt install openjdk-11-jre
 
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+
+---------
+Configure
+---------
+
+#Backup file
+/usr/share/java/jenkins.war
+
+#work directory
+/var/lib/jenkins
