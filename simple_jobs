@@ -1,0 +1,44 @@
+echo "-------------------------Build Started-------------------------"
+cat <<EOF> index.html
+<html>
+<body bgcolor=black>
+<center>
+<h2><font color=yellow>Hello World</font></h2>
+
+<font color=yellow>23</font>
+
+</center>
+</body>
+</html>
+EOF
+echo "-------------------------Build Finished------------------------"
+
+
+
+echo "-------------------------Test Started-------------------------"
+if grep "Hello" index.html; then
+echo "Эта строка есть в файле"
+else
+echo "Этой строки нету в файле"
+exit 1
+fi
+echo "-------------------------Test Finished------------------------"
+
+
+
+
+
+
+????? - решить
+echo "-------------------------Test Started--------------------------"
+result='grep "Hello" index.html | wc -l'
+echo $result
+if [ "$result" = "1" ]
+then
+     echo "Test Passed"
+     exit 0
+else
+     echo "Test Failed"
+     exit 1
+fi
+echo "-------------------------Test Finished-------------------------"
