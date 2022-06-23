@@ -13,7 +13,7 @@ echo "Create Dockerfile with Ubuntu 16.04 / Apache2"
 cat <<EOF> Dockerfile
 FROM ubuntu:16.04
 RUN apt-get update -y
-RUN apt-get install apache2
+RUN apt-get install apache2 -y
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
 EXPOSE 80
 EOF
@@ -27,12 +27,24 @@ cat <<EOF> index.html
 <html>
 <body bgcolor=black>
 <center>
-<h2><font color=yellow>Hello World</font></h2>
+<h2><font color=yellow>Everything good</font></h2>
 <font color=yellow>23</font>
 </center>
 </body>
 </html>
 EOF
+
+
+---------------------------------------
+Send files or execute commands over SSH
+---------------------------------------
+echo "Simple test"
+if grep "good" index.html; then
+echo "Test ok"
+else
+echo "Test failed"
+exit 1
+fi
 
 
 ---------------------------------------
@@ -54,16 +66,6 @@ Send files or execute commands over SSH
 ---------------------------------------
 docker run --name test -d -p 1234:80 apache:latest
 
----------------------------------------
-Send files or execute commands over SSH
----------------------------------------
-echo "Simple test"
-if grep "good" index.html; then
-echo "Test ok"
-else
-echo "Test failed"
-exit 1
-fi
 
 
 ---------------------------------------
