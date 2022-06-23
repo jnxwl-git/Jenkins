@@ -1,0 +1,72 @@
+Tasks:
+1. Create Dockerfile with Ubuntu 16.04 / Apache2
+2. Create simple index.html file
+3. Copy to Dockerfile & index.html to host VM-TEST
+4. Build Docker image from Dockerfile
+5. Run simple test on index.html
+6. Copy index.html to Docker Container
+
+-----
+Shell
+-----
+echo "Create Dockerfile with Ubuntu 16.04 / Apache2"
+cat <<EOF> Dockerfile
+FROM ubuntu:16.04
+RUN apt-get update -y
+RUN apt-get install apache2
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+EXPOSE 80
+EOF
+
+
+-----
+Shell
+-----
+echo "Create simple index.html file"
+cat <<EOF> index.html
+<html>
+<body bgcolor=black>
+<center>
+<h2><font color=yellow>Hello World</font></h2>
+<font color=yellow>23</font>
+</center>
+</body>
+</html>
+EOF
+
+
+---------------------------------------
+Send files or execute commands over SSH
+---------------------------------------
+Copy Dockerfile
+Copy index.html
+
+
+---------------------------------------
+Send files or execute commands over SSH
+---------------------------------------
+docker login
+docker built -t apache .
+
+
+---------------------------------------
+Send files or execute commands over SSH
+---------------------------------------
+docker run --name test -d -p 1234:80 apache:latest
+
+---------------------------------------
+Send files or execute commands over SSH
+---------------------------------------
+echo "Simple test"
+if grep "good" index.html; then
+echo "Test ok"
+else
+echo "Test failed"
+exit 1
+fi
+
+
+---------------------------------------
+Send files or execute commands over SSH
+---------------------------------------
+docker cp index.html test:/var/www/html

@@ -35,3 +35,12 @@ Configure
 
 #work directory
 /var/lib/jenkins
+
+
+-------
+Plugins
+-------
+
+1. Publish over SSH
+- ssh-keygen -t rsa -C "jenkins" -m PEM -P "" -f /home/vagrant/.ssh/id_rsa)
+- ssh-copy-id -i /home/vagrant/.ssh/jenkins vagrant@192.168.10.11
