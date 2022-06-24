@@ -1,0 +1,15 @@
+--------------------
+Jenkins Job Triggers
+--------------------
+
+1. Trigger Builds remotely
+- Start build via link
+
+2. Build after other ptoject are built
+- Start job A => complete ==> Stsrt job B
+
+3. Build periodically
+- ~crontab
+
+4. Poll SCM
+- Check Git repo for last commit
