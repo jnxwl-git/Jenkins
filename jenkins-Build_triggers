@@ -43,3 +43,19 @@ H H 1,15 1-11 *
 
 
 5. Triggers from installed plugins
+
+
+-------------------------------
+Jenkins job trigger from GitHub
+-------------------------------
+
+Install GitHub plugin
+
+Checkbox = GitHub project
+Checkbox = GitHub hook trigger for GITScm polling
+
+
+GitHub.com => project => settings => webhook
+
+Payload URL => http://192.168.10.13:8080/github-webhook/
+Content type => application/json
