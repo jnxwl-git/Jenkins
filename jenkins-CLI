@@ -10,11 +10,30 @@ Install CLI
 ---
 Run
 ---
+Ubuntu
 With login:passwd
 - java -jar jenkins-cli.jar -auth test:test -s http://localhost:8080 who-am-i
 With token
 - java -jar jenkins-cli.jar -auth test:11b4ee1e1990b4a39ad5f582e42e32a80b -s http://localhost:8080 who-am-i
 
+MS Windows (PowerShell)
+With login:passwd
+- java -jar .\jenkins-cli.jar -s http://192.168.10.13:8080 who-am-i
+With token
+- java -jar .\jenkins-cli.jar -auth test:11b4ee1e1990b4a39ad5f582e42e32a80b -s http://192.168.10.13:8080 who-am-i
+
+
+--------
+Examples
+--------
+Ubuntu
+Export XML file with job
+- java -jar jenkins-cli.jar -s http://192.168.10.13:8080 get-job jenkins-job-1 > jenkins-job-1.xml
+Import XML file with job
+- java -jar jenkins-cli.jar -s http://192.168.10.13:8080 create-job jenkins-job-1 < jenkins-job-1.xml
+
+MS Windows (PowerShell)
+- get-content jenkins-job-1.xml | java -jar jenkins-cli.jar -s http://192.168.10.13:8080 create-job jenkins-job-1
 
 -----------
 Environment
