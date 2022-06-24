@@ -1,5 +1,11 @@
 ---
 Map
 ---
-
 Jenkins ==> Login to Git ==> Git clone ==> Jenkins ==> Build/Compile ==> Test ==> Deploy ==> VM:Node1/Apache
+
+----
+Keys
+----
+- ssh-keygen > jenkins, jenkins.pub
+- cat jenkins.pub > SSH & GPG keys
+- private key > Build Settings > Git> Add Creds
