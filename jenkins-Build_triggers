@@ -5,11 +5,41 @@ Jenkins Job Triggers
 1. Trigger Builds remotely
 - Start build via link
 
+=> JENKINS_URL/job/Build-Trigger/build?token=TOKEN_NAME or /buildWithParameters?token=TOKEN_NAME
+
+1. Project name: Build-Trigger
+2. Token: 12345678
+3. http://192.168.10.13:8080/job/Build-Trigger/build?token=12345678
+
 2. Build after other ptoject are built
-- Start job A => complete ==> Stsrt job B
+- Start job A => complete ==> Start job B
+
 
 3. Build periodically
 - ~crontab
 
+MINUTE HOUR DOM MONTH DOW
+
+MINUTE	Minutes within the hour (0–59)
+HOUR	The hour of the day (0–23)
+DOM	The day of the month (1–31)
+MONTH	The month (1–12)
+DOW	The day of the week (0–7) where 0 and 7 are Sunday.
+
+# Every fifteen minutes (perhaps at :07, :22, :37, :52):
+H/15 * * * *
+# Every ten minutes in the first half of every hour (three times, perhaps at :04, :14, :24):
+H(0-29)/10 * * * *
+# Once every two hours at 45 minutes past the hour starting at 9:45 AM and finishing at 3:45 PM every weekday:
+45 9-16/2 * * 1-5
+# Once in every two hour slot between 8 AM and 4 PM every weekday (perhaps at 9:38 AM, 11:38 AM, 1:38 PM, 3:38 PM):
+H H(8-15)/2 * * 1-5
+# Once a day on the 1st and 15th of every month except December:
+H H 1,15 1-11 *
+
+
 4. Poll SCM
 - Check Git repo for last commit
+
+
+5. Triggers from installed plugins
