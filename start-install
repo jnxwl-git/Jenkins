@@ -61,3 +61,8 @@ Remote root directory: /home/vagrant/jenkins
 Labels: ubuntu ubuntu_ansible
 Usage: Use this node as mush as possible
 Launch method: Launch agents via SSH
+
+--------
+Security
+--------
+Number of executors on Master Mode = 0
