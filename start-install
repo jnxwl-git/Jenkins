@@ -9,7 +9,6 @@ CI ==> Deploy == VM/AWS
 ------------
 Installation
 ------------
-
 curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee \
   /usr/share/keyrings/jenkins-keyring.asc > /dev/null
 
@@ -29,18 +28,36 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ---------
 Configure
 ---------
-
 #Backup file
 /usr/share/java/jenkins.war
 
 #work directory
-/var/lib/jenkins
+/var/lib/jenkins/workspace
 
 
 -------
 Plugins
 -------
-
 1. Publish over SSH
-- ssh-keygen -t rsa -C "jenkins" -m PEM -P "" -f /home/vagrant/.ssh/id_rsa)
+- ssh-keygen -t rsa -C "jenkins" -m PEM -P "" -f /home/vagrant/.ssh/id_rsa
 - ssh-copy-id -i /home/vagrant/.ssh/jenkins vagrant@192.168.10.11
+
+
+------------------
+Create Slave Nodes
+------------------
+Plugins:
+- SSH Agent
+- SSH Slaves / Slave SetupPlugin
+
+
+-----------
+Slave1 conf
+-----------
+Name: Node1
+Description: Slave1
+Number of executors: 2
+Remote root directory: /home/vagrant/jenkins
+Labels: ubuntu ubuntu_ansible
+Usage: Use this node as mush as possible
+Launch method: Launch agents via SSH
