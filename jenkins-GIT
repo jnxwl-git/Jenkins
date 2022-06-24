@@ -1,0 +1,5 @@
+---
+Map
+---
+
+Jenkins ==> Login to Git ==> Git clone ==> Jenkins ==> Build/Compile ==> Test ==> Deploy ==> VM:Node1/Apache
