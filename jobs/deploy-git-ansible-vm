@@ -1,0 +1,6 @@
+Tasks:
+1. Login to Git
+2. Git clone over SSH to VM-JENKINS
+3. Run simple test on index.html
+4. Build Docker image from Dockerfile
+5. Copy index.html to Docker Container
