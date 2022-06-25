@@ -5,3 +5,24 @@ Tasks:
 4. Run test on install-nginx.yml
 5. Run ansible-playbook install-nginx.yml
 6. Copy index.html to nginx www folder
+
+
+-----
+Shell
+-----
+echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf > /dev/null
+sudo apt update
+sudo apt-get install yamllint -y
+
+
+-----
+Shell
+-----
+chmod +x playbooks/nginx/test.sh
+playbooks/nginx/test.sh
+
+
+-----
+Shell
+-----
+ansible-playbook -i playbooks/nginx/hosts.txt playbooks/nginx/install-nginx.yml
