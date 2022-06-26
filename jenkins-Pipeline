@@ -1,3 +1,37 @@
 ------------------------
 CI/CD Pipeline as a Code
 ------------------------
+- Install Pipeline plugin
+
+
+---------------
+Simple Pipeline
+---------------
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo "Start stage Building"
+                echo "Building..."
+                echo "End of Stage Build"
+            }
+
+        }
+        stage('Test') {
+            steps {
+                echo "Start stage Test"
+                echo "Testing..."
+                echo "End of Stage Test"
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo "Start stage Deploy"
+                echo "Building..."
+                echo "End of Stage Deploy"
+            }
+        }
+    }
+}
